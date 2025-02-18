@@ -16,9 +16,9 @@
 }
 
 body {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   
   background-color: var(--green-lighter);
@@ -26,8 +26,8 @@ body {
   font-family: 'Karla', serif;
   font-size: 16px;
   height: 100%;
-  width: 100%;
   padding: 1rem;
+  width: 100%;
 }
 
 main {
@@ -37,17 +37,38 @@ main {
 }
 
 h1 {
-  font-size: 1.7em;
+  margin-bottom: 2rem;
 }
 
 input, textarea, .div-radio-inputs {
   border: 1px solid var(--grey-medium);
   border-radius: .3rem;
   margin-top: .7rem;
+  outline: none;
   padding: .8rem;
 }
 
+input, button, .div-radio-inputs, .div-checkbox label {
+  cursor: pointer;
+}
+
+input:hover {
+  border: 1px solid var(--green-medium);
+}
+
+input:focus {
+  border: 2px solid var(--green-medium);
+}
+
+.div-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
 .div-radio {
+  display: flex;
+  flex-direction: column;
   margin: .5rem 0 1rem 0;
 }
 
@@ -55,20 +76,46 @@ input, textarea, .div-radio-inputs {
   margin-top: 0;
 }
 
-.div-container {
-  display: flex;
-  flex-direction: column;
-  margin: 1rem;
+.div-radio-inputs input:checked {
+  content: url("../../assets/images/icon-radio-selected.svg");
 }
 
-.div-radio {
+textarea {
+  resize: none;
+}
+
+.div-checkbox {
+  align-items: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  gap: .9rem;
+  line-height: 1.5rem;
+  margin: 2rem auto;
+}
+
+.div-checkbox input:checked {
+  content: url("../../assets/images/icon-checkbox-check.svg");
+}
+
+div button {
+  background-color: var(--green-medium);
+  border: none;
+  border-radius: .5rem;
+  color: var(--white);
+  letter-spacing: .05rem;
+  font-size: 1.1em;
+  padding: 1rem;
+  width: 100%;
 }
 
 .asterisk::after {
   color: var(--green-medium);
   content: ' *';
+}
+
+.active{
+  background-color: var(--green-lighter);
+  border: 1px solid var(--green-medium);
 }
 
 .error-message {
@@ -77,4 +124,21 @@ input, textarea, .div-radio-inputs {
 
 .div-success-message {
   display: none;
+}
+
+footer {
+  color: var(--grey-darker);
+  margin: 2rem auto;
+  max-width: 15rem;
+  text-align: center;
+}
+
+footer a {
+  color: var(--green-medium);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--grey-darker);
+  text-decoration: underline;
 }
