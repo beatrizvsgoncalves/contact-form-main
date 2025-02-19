@@ -13,6 +13,8 @@
 
     <link rel="stylesheet" href="./src/styles/index.css">
 
+		<script type="module" src="./src/js/index.js"></script>
+
 		<title>Frontend Mentor | Contact form</title>
 	</head>
 	<body>
@@ -22,17 +24,17 @@
 			<form action="#" method="post">
 				<div class="div-container">
 					<label for="first-name" class="asterisk">First Name</label>
-					<input type="text" name="first-name" id="first-name" required autocomplete="name" />
+					<input type="text" name="first-name" id="first-name" autocomplete="cc-given-name" />
 					<p class="error-message">This field is required</p>
 				</div>
 				<div class="div-container">
 					<label for="last-name" class="asterisk">Last Name</label>
-					<input type="text" name="last-name" id="last-name" required autocomplete="family-name" />
+					<input type="text" name="last-name" id="last-name" autocomplete="cc-family-name" />
 					<p class="error-message">This field is required</p>
 				</div>
 				<div class="div-container">
 					<label for="email" class="asterisk">Email Address</label>
-					<input type="email" name="email" id="email" required autocomplete="email" />
+					<input type="email" name="email" id="email" autocomplete="email" />
 					<p class="error-message">Please enter a valid email address</p>
 				</div>
 				<div class="div-container">
@@ -57,7 +59,7 @@
 							<label for="type-support">Support Request</label>
 						</div>
 					</div>
-					<p class="error-message">Please select a query type</p>
+					<p class="error-message p1">Please select a query type</p>
 				</div>
 				<div class="div-container">
 					<label for="message" class="asterisk">Message</label>
@@ -66,14 +68,15 @@
 						id="message"
 						cols="30"
 						rows="10"
-						required 
 					></textarea>
 					<p class="error-message">This field is required</p>
 				</div>
-				<div class="div-checkbox">
-					<input type="checkbox" name="consent" id="consent" required />
-					<label for="consent" class="asterisk">I consent to being contacted by the team</label>
-					<p class="error-message">
+				<div>
+					<div class="div-checkbox">
+						<input type="checkbox" name="consent" id="consent" />
+						<label for="consent" class="asterisk">I consent to being contacted by the team</label>
+					</div>
+					<p class="error-message p2">
 						To submit this form, please consent to being contacted
 					</p>
 				</div>

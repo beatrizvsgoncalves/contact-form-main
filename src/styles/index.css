@@ -9,6 +9,7 @@
 :root {
   --green-lighter: hsl(148, 38%, 91%);
   --green-medium: hsl(169, 82%, 27%);
+  --green-darker: hsl(169, 82%, 17%);
   --red: hsl(0, 66%, 54%);
   --white: hsl(0, 0%, 100%);
   --grey-medium: hsl(186, 15%, 59%);
@@ -108,18 +109,25 @@ div button {
   width: 100%;
 }
 
+div button:hover {
+  background-color: var(--green-darker);
+}
+
 .asterisk::after {
   color: var(--green-medium);
   content: ' *';
 }
 
-.active{
+.selected{
   background-color: var(--green-lighter);
   border: 1px solid var(--green-medium);
 }
 
 .error-message {
+  color: var(--red);
   display: none;
+  font-size: .9em;
+  margin-top: .5rem;
 }
 
 .div-success-message {
