@@ -1,20 +1,24 @@
+import { valid } from "./form.js";
+
 export default function successMessage() {
-  const successMsg = document.createElement('div')
-  successMsg.classList.add('success-message')
+	if (!valid.includes(false)) {
+		const successMsg = document.createElement("div");
+		successMsg.classList.add("success-message");
 
-  const successTitle = document.createElement('h2')
-  successTitle.textContent = "Message Sent!"
-  successTitle.classList.add('success-title')
+		const successTitle = document.createElement("h2");
+		successTitle.textContent = "Message Sent!";
+		successTitle.classList.add("success-title");
 
-  const successText = document.createElement('p')
-  successText.textContent = "Thanks for completing the form. We'll be in touch soon!"
+		const successText = document.createElement("p");
+		successText.textContent =
+			"Thanks for completing the form. We'll be in touch soon!";
 
-  successMsg.append(successTitle, successText)
+		successMsg.append(successTitle, successText);
 
-  document.body.insertAdjacentElement('afterbegin', successMsg)
+		document.body.insertAdjacentElement("afterbegin", successMsg);
 
-
-  setTimeout (() => {
-    successMsg.remove()
-  }, 15000)
+		setTimeout(() => {
+			successMsg.remove();
+		}, 15000);
+	}
 }

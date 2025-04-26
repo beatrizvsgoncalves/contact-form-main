@@ -1,5 +1,5 @@
 import { radioSelected } from "./radio-selected.js";
-import validateForm from "./form.js";
+import { validateForm } from "./form.js";
 
 radioSelected();
 validateForm();

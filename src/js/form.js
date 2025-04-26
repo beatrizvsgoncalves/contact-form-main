@@ -1,12 +1,17 @@
 import { formatRadioSyle } from "./radio-selected.js";
 import successMessage from "./success.js";
 
-export default function validateForm() {
+export let valid = []
+
+export function validateForm() {
 	function validateFirstName(firstName) {
 		if (firstName.value === "" || firstName.value.length < 2) {
 			const err = new Error("This field is required");
 			err.input = "firstName";
 			displayError(err.message, err.input);
+			valid[0] = false;
+		} else {
+			valid[0] = true;
 		}
 	}
 
@@ -15,6 +20,9 @@ export default function validateForm() {
 			const err = new Error("This field is required");
 			err.input = "lastName";
 			displayError(err.message, err.input);
+			valid[1] = false;
+		} else {
+			valid[1] = true;
 		}
 	}
 
@@ -26,6 +34,9 @@ export default function validateForm() {
 			const err = new Error("Please enter a valid email address");
 			err.input = "email";
 			displayError(err.message, err.input);
+			valid[2] = false;
+		} else {
+			valid[2] = true;
 		}
 	}
 
@@ -34,6 +45,9 @@ export default function validateForm() {
 			const err = new Error("Please select a query type");
 			err.input = "queryType";
 			displayError(err.message, err.input);
+			valid[3] = false;
+		} else {
+			valid[3] = true;
 		}
 	}
 
@@ -42,6 +56,9 @@ export default function validateForm() {
 			const err = new Error("This field is required");
 			err.input = "message";
 			displayError(err.message, err.input);
+			valid[4] = false;
+		} else {
+			valid[4] = true;
 		}
 	}
 
@@ -52,7 +69,19 @@ export default function validateForm() {
 			);
 			err.input = "consent";
 			displayError(err.message, err.input);
+			valid[5] = false;
+		} else {
+			valid[5] = true;
 		}
+	}
+		
+	function validateInputs() {
+		validateFirstName(userInputs.firstName);
+		validateLastName(userInputs.lastName);
+		validateEmail(userInputs.email);
+		validateQueryType(userInputs.queryType);
+		validateMessage(userInputs.message);
+		validateConsent(userInputs.consent);
 	}
 
 	const userInputs = {
@@ -64,13 +93,6 @@ export default function validateForm() {
 		consent: document.querySelector("input[type='checkbox']"),
 	};
 
-	function resetFormStyles(inputs) {
-		Object.entries(inputs).forEach(([key, value]) => {
-			value?.classList?.remove("error");
-			document.querySelector(`#${key}-error`).textContent = "";
-		});
-	}
-
 	function displayError(message, key) {
 		const errorElement = document.querySelector(`#${key}-error`);
 		errorElement.textContent = message;
@@ -79,16 +101,14 @@ export default function validateForm() {
 		}
 	}
 
-	function validateInputs() {
-		validateFirstName(userInputs.firstName);
-		validateLastName(userInputs.lastName);
-		validateEmail(userInputs.email);
-		validateQueryType(userInputs.queryType);
-		validateMessage(userInputs.message);
-		validateConsent(userInputs.consent);
+	function resetFormStyles(inputs) {
+		Object.entries(inputs).forEach(([key, value]) => {
+			value?.classList?.remove("error");
+			document.querySelector(`#${key}-error`).textContent = "";
+		});
 	}
-
-	function resetForm() {
+	
+	function resetFormInputs() {
 		if (document.querySelector(".success-message")) {
 			userInputs.firstName.value = "";
 			userInputs.lastName.value = "";
@@ -108,6 +128,6 @@ export default function validateForm() {
 		resetFormStyles(userInputs);
 		validateInputs();
 		successMessage();
-		resetForm();
+		resetFormInputs();
 	});
 }
