@@ -142,9 +142,27 @@ div button:hover {
   margin-top: .5rem;
 }
 
-.div-success-message {
-  display: none;
+.success-message {
+  background-color: var(--green-darker);
+  border-radius: .5rem;
+  color: var(--white);
+  font-size: .9em;
+  max-width: 24rem;
+  padding: 1rem
 }
+
+.success-title {
+  font-size: 1.3em;
+  margin-bottom: 1rem;
+}
+
+.success-title::before {
+  content: url("../../assets/images/icon-success-check.svg");
+  margin-right: .7rem;
+  position: relative;
+  top: .3rem;
+}
+
 
 footer {
   color: var(--grey-darker);

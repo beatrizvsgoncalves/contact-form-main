@@ -1,3 +1,6 @@
+import { formatRadioSyle } from "./radio-selected.js";
+import successMessage from "./success.js";
+
 export default function validateForm() {
 	function validateFirstName(firstName) {
 		if (firstName.value === "" || firstName.value.length < 2) {
@@ -16,7 +19,10 @@ export default function validateForm() {
 	}
 
 	function validateEmail(email) {
-		if (email.value === "" || !email.value.match(/\w{2,}@[a-zA-Z]{2,}\.[a-zA-Z]{2,}/)) {
+		if (
+			email.value === "" ||
+			!email.value.match(/\w{2,}@[a-zA-Z]{2,}\.[a-zA-Z]{2,}/)
+		) {
 			const err = new Error("Please enter a valid email address");
 			err.input = "email";
 			displayError(err.message, err.input);
@@ -55,7 +61,7 @@ export default function validateForm() {
 		email: document.querySelector("#email"),
 		queryType: document.querySelectorAll("input[type='radio']"),
 		message: document.querySelector("#message"),
-		consent: document.querySelector("input[type='checkbox']")
+		consent: document.querySelector("input[type='checkbox']"),
 	};
 
 	function resetFormStyles(inputs) {
@@ -73,18 +79,35 @@ export default function validateForm() {
 		}
 	}
 
-	const form = document.querySelector("form");
-
-	form.addEventListener("submit", (ev) => {
-		ev.preventDefault();
-		resetFormStyles(userInputs);
-		
+	function validateInputs() {
 		validateFirstName(userInputs.firstName);
 		validateLastName(userInputs.lastName);
 		validateEmail(userInputs.email);
 		validateQueryType(userInputs.queryType);
 		validateMessage(userInputs.message);
 		validateConsent(userInputs.consent);
-		// successMessage()
+	}
+
+	function resetForm() {
+		if (document.querySelector(".success-message")) {
+			userInputs.firstName.value = "";
+			userInputs.lastName.value = "";
+			userInputs.email.value = "";
+			userInputs.queryType[0].checked = false;
+			userInputs.queryType[1].checked = false;
+			formatRadioSyle();
+			userInputs.message.value = "";
+			userInputs.consent.checked = false;
+		}
+	}
+
+	const form = document.querySelector("form");
+
+	form.addEventListener("submit", (ev) => {
+		ev.preventDefault();
+		resetFormStyles(userInputs);
+		validateInputs();
+		successMessage();
+		resetForm();
 	});
 }
