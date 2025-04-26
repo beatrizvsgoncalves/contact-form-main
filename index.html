@@ -24,18 +24,18 @@
 			<form action="#" method="post">
 				<div class="div-container">
 					<label for="first-name" class="asterisk">First Name</label>
-					<input type="text" name="first-name" id="first-name" autocomplete="cc-given-name" />
-					<p class="error-message">This field is required</p>
+					<input type="text" name="first-name" id="first-name" autocomplete="cc-given-name" required />
+					<span id="first-name-error" class="error-message">This field is required</span>
 				</div>
 				<div class="div-container">
 					<label for="last-name" class="asterisk">Last Name</label>
-					<input type="text" name="last-name" id="last-name" autocomplete="cc-family-name" />
-					<p class="error-message">This field is required</p>
+					<input type="text" name="last-name" id="last-name" autocomplete="cc-family-name" required />
+					<span id="last-name-error" class="error-message">This field is required</span>
 				</div>
 				<div class="div-container">
 					<label for="email" class="asterisk">Email Address</label>
-					<input type="email" name="email" id="email" autocomplete="email" />
-					<p class="error-message">Please enter a valid email address</p>
+					<input type="email" name="email" id="email" autocomplete="email" required />
+					<span id="email-error" class="error-message">Please enter a valid email address</span>
 				</div>
 				<div class="div-container">
           <p class="asterisk">Query type</p>
@@ -59,7 +59,7 @@
 							<label for="type-support">Support Request</label>
 						</div>
 					</div>
-					<p class="error-message p1">Please select a query type</p>
+					<span id="query-type-error" class="error-message">Please select a query type</span>
 				</div>
 				<div class="div-container">
 					<label for="message" class="asterisk">Message</label>
@@ -68,17 +68,18 @@
 						id="message"
 						cols="30"
 						rows="10"
+						required
 					></textarea>
-					<p class="error-message">This field is required</p>
+					<span id="message-error" class="error-message">This field is required</span>
 				</div>
 				<div>
 					<div class="div-checkbox">
-						<input type="checkbox" name="consent" id="consent" />
+						<input type="checkbox" name="consent" id="consent" required />
 						<label for="consent" class="asterisk">I consent to being contacted by the team</label>
 					</div>
-					<p class="error-message p2">
+					<span id="consent-error" class="error-message">
 						To submit this form, please consent to being contacted
-					</p>
+					</span>
 				</div>
 				<div>
 					<button type="submit">Submit</button>
