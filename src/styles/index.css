@@ -70,7 +70,7 @@ input:focus {
 .div-radio {
   display: flex;
   flex-direction: column;
-  margin: .5rem 0 1rem 0;
+  margin: .5rem 0 0 0;
 }
 
 .div-radio-inputs input {
@@ -91,7 +91,16 @@ textarea {
   flex-direction: row;
   gap: .9rem;
   line-height: 1.5rem;
-  margin: 2rem auto;
+  margin: 1rem auto;
+}
+
+.div-checkbox + span {
+  margin-bottom: 2rem;
+  margin-top: -.6rem;
+}
+
+.div-checkbox input {
+  margin: auto;
 }
 
 .div-checkbox input:checked {
@@ -118,14 +127,17 @@ div button:hover {
   content: ' *';
 }
 
-.selected{
+.selected {
   background-color: var(--green-lighter);
   border: 1px solid var(--green-medium);
 }
 
+.error {
+  border: 1px solid var(--red);
+}
+
 .error-message {
   color: var(--red);
-  display: none;
   font-size: .9em;
   margin-top: .5rem;
 }

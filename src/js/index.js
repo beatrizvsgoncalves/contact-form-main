@@ -1,5 +1,9 @@
-import { radioSelected } from "./radio-selected.js";
-import { formValidation } from "./validation.js";
+import radioSelected from "./radio-selected.js";
+import validateForm from "./validation.js";
 
 radioSelected();
-formValidation();
+validateForm();
+
+// todo -- mensagem de sucesso após o envio do formulário
+// todo -- navegação pelo teclado
+// todo -- media queries para desktop
