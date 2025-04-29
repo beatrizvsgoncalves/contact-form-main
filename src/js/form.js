@@ -1,7 +1,7 @@
-import { formatRadioSyle } from "./radio-selected.js";
+import { resetRadioStyles } from "./handle-radio.js";
 import successMessage from "./success.js";
 
-export let valid = []
+export let valid = [];
 
 export function validateForm() {
 	function validateFirstName(firstName) {
@@ -74,7 +74,7 @@ export function validateForm() {
 			valid[5] = true;
 		}
 	}
-		
+
 	function validateInputs() {
 		validateFirstName(userInputs.firstName);
 		validateLastName(userInputs.lastName);
@@ -107,7 +107,7 @@ export function validateForm() {
 			document.querySelector(`#${key}-error`).textContent = "";
 		});
 	}
-	
+
 	function resetFormInputs() {
 		if (document.querySelector(".success-message")) {
 			userInputs.firstName.value = "";
@@ -115,7 +115,7 @@ export function validateForm() {
 			userInputs.email.value = "";
 			userInputs.queryType[0].checked = false;
 			userInputs.queryType[1].checked = false;
-			formatRadioSyle();
+			resetRadioStyles
 			userInputs.message.value = "";
 			userInputs.consent.checked = false;
 		}

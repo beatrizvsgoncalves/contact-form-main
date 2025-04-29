@@ -41,6 +41,10 @@ h1 {
   margin-bottom: 2rem;
 }
 
+h1, label, p {
+  user-select: none;
+}
+
 input, textarea, .div-radio-inputs {
   border: 1px solid var(--grey-medium);
   border-radius: .3rem;
@@ -53,12 +57,8 @@ input, button, .div-radio-inputs, .div-checkbox label {
   cursor: pointer;
 }
 
-input:hover {
+input:hover, input:focus {
   border: 1px solid var(--green-medium);
-}
-
-input:focus {
-  border: 2px solid var(--green-medium);
 }
 
 .div-container {
@@ -71,6 +71,10 @@ input:focus {
   display: flex;
   flex-direction: column;
   margin: .5rem 0 0 0;
+}
+
+.div-radio label {
+  cursor: pointer;
 }
 
 .div-radio-inputs input {
@@ -87,6 +91,7 @@ textarea {
 
 .div-checkbox {
   align-items: center;
+  border-radius: .3rem;
   display: flex;
   flex-direction: row;
   gap: .9rem;
@@ -105,6 +110,10 @@ textarea {
 
 .div-checkbox input:checked {
   content: url("../../assets/images/icon-checkbox-check.svg");
+}
+
+div button:focus {
+  outline: 2px solid var(--green-darker);
 }
 
 div button {
