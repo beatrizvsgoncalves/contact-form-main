@@ -6,5 +6,5 @@ keyboardNavigation();
 validateForm();
 handleRadio();
 
-// todo -- terminar navegação pelo teclado com o enter
+// todo -- refatorar o código para melhorar a legibilidade e a manutenibilidade
 // todo -- media queries para desktop

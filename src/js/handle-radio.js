@@ -11,6 +11,8 @@ export function handleRadio() {
 				resetRadioStyles();
 				input.checked = true;
 				input.parentElement.classList.add("selected");
+				const nextElement = document.querySelector(`[tabindex='${input.tabIndex + 2}']`);
+				nextElement.focus();
 			} else if (ev.key === "ArrowDown" || ev.key === "ArrowUp") {
 				ev.preventDefault();
 			}

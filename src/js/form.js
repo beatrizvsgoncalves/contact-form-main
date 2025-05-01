@@ -115,7 +115,7 @@ export function validateForm() {
 			userInputs.email.value = "";
 			userInputs.queryType[0].checked = false;
 			userInputs.queryType[1].checked = false;
-			resetRadioStyles
+			resetRadioStyles()
 			userInputs.message.value = "";
 			userInputs.consent.checked = false;
 		}
