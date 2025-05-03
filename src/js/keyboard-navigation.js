@@ -1,36 +1,29 @@
 import { handleRadio } from "./handle-radio.js";
-
-let currentIndex = 0;
+let currentIndex = -1;
 
 export default function keyboardNavigation() {
 	const elements = document.querySelectorAll(".keyboard-navigation");
+	
+	document.addEventListener("keydown", (event) => {
+		if (event.key === "Tab") {
+			event.preventDefault();
 
-	elements.forEach((element) => {
-		element.addEventListener("keydown", (event) => {
-			handleSubmit();
-
-			if (event.key === "Tab") {
-				event.preventDefault();
-				resetStyles();
-
-				if (event.key === "Tab" && event.shiftKey) {
-					event.preventDefault();
-					currentIndex = (currentIndex - 1 + elements.length) % elements.length;
-				} else {
-					currentIndex = (currentIndex + 1) % elements.length;
-				}
-
-				const input = elements[currentIndex];
-				input.focus();
-				focusRadioAndCheckbox(input);
-			} else if (event.key === "Enter") {
-				event.preventDefault();
-
-				handleRadio();
-				handleCheckbox();
-				focusInNextElement();
+			if (event.shiftKey) {
+				currentIndex = (currentIndex - 1 + elements.length) % elements.length;
+			} else {
+				currentIndex = (currentIndex + 1) % elements.length;
 			}
-		});
+			
+			elements[currentIndex].focus();
+			resetStyles();
+			focusRadioAndCheckbox(elements[currentIndex]);
+		} else if (event.key === "Enter") {
+			event.preventDefault();
+			
+			handleRadio();
+			handleCheckboxEnter();
+			focusInNextElement();
+		}
 	});
 }
 
@@ -38,13 +31,19 @@ function focusInNextElement() {
 	const elements = document.querySelectorAll(".keyboard-navigation");
 	const elementOnFocus = elements[document.activeElement.tabIndex];
 	const nextElement =
-		elements[elementOnFocus.tabIndex + 1] === undefined
-			? undefined
-			: elements[elementOnFocus.tabIndex + 1];
+	elements[elementOnFocus.tabIndex + 1] === undefined
+	? undefined
+	: elements[elementOnFocus.tabIndex + 1];
+	
 	if (nextElement) {
 		currentIndex = nextElement.tabIndex % elements.length;
 		nextElement.focus();
 		focusRadioAndCheckbox(nextElement);
+	}
+
+	if (elementOnFocus.type === "submit") {
+		handleSubmitEnter();
+		resetStyles();
 	}
 }
 
@@ -56,7 +55,7 @@ function focusRadioAndCheckbox(input) {
 	}
 }
 
-function handleCheckbox() {
+function handleCheckboxEnter() {
 	const checkbox = document.querySelector('input[type="checkbox"]');
 	checkbox.addEventListener("keydown", (event) => {
 		if (event.key === "Enter") {
@@ -65,14 +64,9 @@ function handleCheckbox() {
 	});
 }
 
-function handleSubmit() {
-	const submitButton = document.querySelector('button[type="submit"]');
-	submitButton.addEventListener("keydown", (event) => {
-		if (event.key === "Enter") {
-			event.preventDefault();
-			submitButton.click();
-		}
-	});
+function handleSubmitEnter() {
+	const submitButton = document.querySelector('[type="submit"]');
+	submitButton.click();
 }
 
 function resetStyles() {

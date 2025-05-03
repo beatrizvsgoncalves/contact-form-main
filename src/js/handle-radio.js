@@ -6,13 +6,17 @@ export function handleRadio() {
 			resetRadioStyles();
 			input.parentElement.classList.add("selected");
 		})
+
 		input.addEventListener("keydown", (ev) => {
 			if (ev.key === "Enter") {
 				resetRadioStyles();
 				input.checked = true;
 				input.parentElement.classList.add("selected");
-				const nextElement = document.querySelector(`[tabindex='${input.tabIndex + 2}']`);
-				nextElement.focus();
+
+				if (input.tabIndex === 3) {
+					const nextElement = document.querySelector(`[tabindex='4']`);
+					nextElement.focus();
+				}
 			} else if (ev.key === "ArrowDown" || ev.key === "ArrowUp") {
 				ev.preventDefault();
 			}
@@ -23,5 +27,6 @@ export function handleRadio() {
 export function resetRadioStyles() {
 	inputs.forEach((input) => {
 		input.parentElement.classList.remove("selected");
+		input.parentElement.style.border = "1px solid var(--grey-medium)";
 	});
 }

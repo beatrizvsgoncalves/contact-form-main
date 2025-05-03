@@ -16,9 +16,7 @@ export default function successMessage() {
 		successMsg.append(successTitle, successText);
 
 		document.body.insertAdjacentElement("afterbegin", successMsg);
-
-		setTimeout(() => {
-			successMsg.remove();
-		}, 15000);
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
 	}
 }

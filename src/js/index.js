@@ -6,5 +6,5 @@ keyboardNavigation();
 validateForm();
 handleRadio();
 
-// todo -- refatorar o código para melhorar a legibilidade e a manutenibilidade
+// todo -- implementar atributos aria para acessibilidade
 // todo -- media queries para desktop
