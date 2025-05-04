@@ -2,9 +2,10 @@ const inputs = document.querySelectorAll('input[type="radio"]')
 
 export function handleRadio() {
 	inputs.forEach(input => {
-		input.addEventListener("click", () => {
+		input.parentElement.addEventListener("click", () => {
 			resetRadioStyles();
 			input.parentElement.classList.add("selected");
+			input.checked = true;
 		})
 
 		input.addEventListener("keydown", (ev) => {
