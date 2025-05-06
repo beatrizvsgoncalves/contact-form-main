@@ -49,7 +49,7 @@ function focusInNextElement() {
 
 function focusRadioAndCheckbox(input) {
 	if (input.type === "radio") {
-		input.parentElement.style.border = "1px solid var(--green-medium)";
+		input.parentElement.style.border = "2px solid var(--green-medium)";
 	} else if (input.type === "checkbox") {
 		input.parentElement.style.textDecoration = "underline";
 	}

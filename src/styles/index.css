@@ -58,7 +58,7 @@ input, button, .div-radio-inputs, .div-checkbox label {
 }
 
 input:hover, input:focus {
-  border: 1px solid var(--green-medium);
+  border: 2px solid var(--green-medium);
 }
 
 .div-container {
@@ -97,6 +97,7 @@ textarea {
   gap: .9rem;
   line-height: 1.5rem;
   margin: 1rem auto;
+  text-underline-offset: 0.2rem;
 }
 
 .div-checkbox + span {
@@ -180,12 +181,27 @@ footer {
   text-align: center;
 }
 
+footer p {
+  margin-bottom: .5rem;
+}
+
 footer a {
   color: var(--green-medium);
-  text-decoration: none;
+  font-weight: 600;
+  text-underline-offset: 0.2rem;
 }
 
 footer a:hover {
-  color: var(--grey-darker);
+  color: var(--green-darker);
   text-decoration: underline;
+}
+
+footer a:visited {
+  color: var(--green-darker);
+}
+
+footer a:focus {
+  border-radius: .1rem;
+  outline: 2px solid var(--green-darker);
+  outline-offset: 1px;
 }
