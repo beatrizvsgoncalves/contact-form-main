@@ -58,7 +58,7 @@ input, button, .div-radio-inputs, .div-checkbox label {
 }
 
 input:hover, input:focus {
-  border: 2px solid var(--green-medium);
+  border: 1px solid var(--green-medium);
 }
 
 .div-container {

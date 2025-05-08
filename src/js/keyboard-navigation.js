@@ -35,13 +35,11 @@ function focusInNextElement() {
 	? undefined
 	: elements[elementOnFocus.tabIndex + 1];
 	
-	if (nextElement) {
+	if (elementOnFocus.type !== "submit" && elementOnFocus.value !== "" && nextElement !== undefined) {
 		currentIndex = nextElement.tabIndex % elements.length;
 		nextElement.focus();
 		focusRadioAndCheckbox(nextElement);
-	}
-
-	if (elementOnFocus.type === "submit") {
+	} else if (elementOnFocus.type === "submit") {
 		handleSubmitEnter();
 		resetStyles();
 	}
@@ -49,7 +47,7 @@ function focusInNextElement() {
 
 function focusRadioAndCheckbox(input) {
 	if (input.type === "radio") {
-		input.parentElement.style.border = "2px solid var(--green-medium)";
+		input.parentElement.style.border = "1px solid var(--green-medium)";
 	} else if (input.type === "checkbox") {
 		input.parentElement.style.textDecoration = "underline";
 	}
@@ -57,11 +55,13 @@ function focusRadioAndCheckbox(input) {
 
 function handleCheckboxEnter() {
 	const checkbox = document.querySelector('input[type="checkbox"]');
-	checkbox.addEventListener("keydown", (event) => {
-		if (event.key === "Enter") {
-			checkbox.checked = true;
-		}
-	});
+	checkbox.parentElement.style.textDecoration = "none";
+	
+	if (checkbox.checked === false) {
+		checkbox.click();
+	} else {
+		checkbox.checked = false;
+	}
 }
 
 function handleSubmitEnter() {
