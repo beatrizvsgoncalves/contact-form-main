@@ -5,7 +5,7 @@ export default function successMessage() {
 		const successMsg = document.createElement("div");
 		successMsg.classList.add("success-message");
 
-		const successTitle = document.createElement("h2");
+		const successTitle = document.createElement("p");
 		successTitle.textContent = "Message Sent!";
 		successTitle.classList.add("success-title");
 
@@ -15,7 +15,9 @@ export default function successMessage() {
 
 		successMsg.append(successTitle, successText);
 
-		document.body.insertAdjacentElement("afterbegin", successMsg);
+		const main = document.querySelector("main")
+		main.insertAdjacentElement("afterbegin", successMsg);
+
 		document.body.scrollTop = 0;
 		document.documentElement.scrollTop = 0;
 	}
