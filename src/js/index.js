@@ -7,4 +7,3 @@ validateForm();
 handleRadio();
 
 // todo -- implementar atributos aria para acessibilidade
-// todo -- arrumar o label do checkbox que está flutuando

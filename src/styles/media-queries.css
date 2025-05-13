@@ -141,8 +141,8 @@
 
 	input[type="checkbox"],
 	input[type="radio"] {
-		width: 1.7vw;
 		height: 1.7vh;
+		width: 1.7vw;
 	}
 
 	footer {
@@ -159,7 +159,4 @@
 	.success-message {
 		border-radius: 0.8rem;
 	}
-
-	/* .container-checkbox label {
-	} */
 }

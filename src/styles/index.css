@@ -123,7 +123,7 @@ input:focus {
 .container-checkbox {
 	display: flex;
 	flex-direction: row;
-	gap: 0.9rem;
+	gap: 1rem;
 
 	border-radius: 0.3rem;
 	line-height: 1.5rem;
@@ -142,6 +142,12 @@ input:focus {
 
 .container-checkbox input:checked {
 	content: url("../../assets/images/icon-checkbox-check.svg");
+}
+
+.container-checkbox label {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .button:focus {
@@ -199,15 +205,16 @@ input:focus {
 .success-title {
 	font-size: 1.3em;
 	font-weight: 600;
-  padding-left: 10%;
+	padding-left: 10%;
 	position: relative;
 }
 
 .success-title::before {
 	content: "";
-	background: url("../../assets/images/icon-success-check.svg") left / contain no-repeat;
+	background: url("../../assets/images/icon-success-check.svg") left / contain
+		no-repeat;
 
-  position: absolute;
+	position: absolute;
 	left: 0;
 	top: 0;
 
