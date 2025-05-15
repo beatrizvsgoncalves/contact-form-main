@@ -54,7 +54,6 @@ h1,
 label,
 p,
 legend {
-	-webkit-user-select: none;
 	user-select: none;
 }
 
