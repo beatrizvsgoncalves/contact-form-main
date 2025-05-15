@@ -26,79 +26,101 @@
 				<form action="#" method="post">
 					<div class="div-fullname">
 						<div class="container-inputs">
-							<label for="firstName" class="asterisk">First Name</label>
+							<label for="firstName">First Name <span class="mandatory">*</span></label>
 							<input
 								type="text"
 								name="firstName"
 								id="firstName"
-								autocomplete="cc-given-name"
 								class="keyboard-navigation"
+								autocomplete="cc-given-name"
+								aria-required="true"
+								aria-describedby="firstName-error"
+								aria-invalid="true"
 								tabindex="0"
 							/>
-							<span id="firstName-error" class="error-message"></span>
+							<span id="firstName-error" class="error-message" role="alert"></span>
 						</div>
 						<div class="container-inputs">
-							<label for="lastName" class="asterisk">Last Name</label>
+							<label for="lastName">Last Name <span class="mandatory">*</span></label>
 							<input
 								type="text"
 								name="lastName"
 								id="lastName"
-								autocomplete="cc-family-name"
 								class="keyboard-navigation"
+								autocomplete="cc-family-name"
+								aria-required="true"
+								aria-describedby="lastName-error"
+								aria-invalid="true"
 								tabindex="1"
 							/>
-							<span id="lastName-error" class="error-message"></span>
+							<span id="lastName-error" class="error-message" role="alert"></span>
 						</div>
 					</div>
 					<div class="container-inputs">
-						<label for="email" class="asterisk">Email Address</label>
+						<label for="email">Email Address <span class="mandatory">*</span></label>
 						<input
 							type="text"
 							name="email"
 							id="email"
-							autocomplete="email"
 							class="keyboard-navigation"
+							autocomplete="email"
+							aria-required="true"
+							aria-describedby="email-error"
+							aria-invalid="true"
 							tabindex="2"
 						/>
-						<span id="email-error" class="error-message"></span>
+						<span id="email-error" class="error-message" role="alert"></span>
 					</div>
 					<div class="container-inputs">
-						<p class="asterisk" id="type">Query type</p>
-						<div class="container-radio">
-							<div class="input-radio">
-								<input
+						<fieldset>
+							<legend>Query type <span class="mandatory">*</span></legend>
+							<div class="container-radio">
+								<div class="input-radio">
+									<input
 									type="radio"
 									name="queryType"
 									id="type-general"
-									value="General Enquiry"
 									class="keyboard-navigation"
+									value="General Enquiry"
+									aria-label="General Enquiry"
+									aria-required="true"
+									aria-describedby="email-error"
+									aria-invalid="true"
 									tabindex="3"
-								/>
-								<label for="type-general">General Enquiry</label>
-							</div>
-							<div class="input-radio">
-								<input
+									/>
+									<label for="type-general">General Enquiry</label>
+								</div>
+								<div class="input-radio">
+									<input
 									type="radio"
 									name="queryType"
 									id="type-support"
-									value="Support Request"
 									class="keyboard-navigation"
+									value="Support Request"
+									aria-label="Support Request"
+									aria-required="true"
+									aria-describedby="email-error"
+									aria-invalid="true"
 									tabindex="4"
-								/>
-								<label for="type-support">Support Request</label>
+									/>
+									<label for="type-support">Support Request</label>
+								</div>
 							</div>
-						</div>
-						<span id="queryType-error" class="error-message"></span>
+						</fieldset>
+						<span id="queryType-error" class="error-message" role="alert"></span>
 					</div>
 					<div class="container-inputs">
-						<label for="message" class="asterisk">Message</label>
+						<label for="message">Message <span class="mandatory">*</span></label>
 						<textarea
 							name="message"
 							id="message"
 							class="keyboard-navigation message"
+							aria-required="true"
+							aria-describedby="message-error"
+							aria-invalid="true"
 							tabindex="5"
 						></textarea>
-						<span id="message-error" class="error-message"></span>
+						<span id="message-error" class="error-message" role="alert"></span>
 					</div>
 					<div class="container-inputs">
 						<div class="container-checkbox">
@@ -107,16 +129,19 @@
 								name="consent"
 								id="consent"
 								class="keyboard-navigation"
-								tabindex="6""
+								aria-required="true"
+								aria-describedby="consent-error"
+								aria-invalid="true"
+								aria-label="Consent contact"
+								tabindex="6"
 							/>
-							<label for="consent" class="asterisk"
-								>I consent to being contacted by the team</label
+							<label for="consent">I consent to being contacted by the team <span class="mandatory">*</span></label
 							>
 						</div>
-						<span id="consent-error" class="error-message"></span>
+						<span id="consent-error" class="error-message" role="alert"></span>
 					</div>
 					<div>
-						<button type="submit" class="keyboard-navigation button" tabindex="7">Submit</button>
+						<button type="submit" class="keyboard-navigation button" tabindex="7" aria-label="Submit the form">Submit</button>
 					</div>
 				</form>
 			</main>
@@ -124,12 +149,12 @@
 				<div>
 					<p>
 						Challenge by
-						<a href="https://www.frontendmentor.io?ref=challenge" class="keyboard-navigation">Frontend Mentor</a
+						<a href="https://www.frontendmentor.io?ref=challenge" target="_blank" class="keyboard-navigation" tabindex="8" aria-label="Challenge reference">Frontend Mentor</a
 						>.
 					</p>
 					<p>
 						Coded by
-						<a href="https://github.com/beatrizvsgoncalves" class="keyboard-navigation">Beatriz Gonçalves</a>.
+						<a href="https://github.com/beatrizvsgoncalves" target="_blank" class="keyboard-navigation" tabindex="9" aria-label="Author's social network">Beatriz Gonçalves</a>.
 					</p>
 				</div>
 		</div>

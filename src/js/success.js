@@ -4,6 +4,8 @@ export default function successMessage() {
 	if (!valid.includes(false)) {
 		const successMsg = document.createElement("div");
 		successMsg.classList.add("success-message");
+		successMsg.ariaLive = "assertive"
+		successMsg.role = "alert"
 
 		const successTitle = document.createElement("p");
 		successTitle.textContent = "Message Sent!";

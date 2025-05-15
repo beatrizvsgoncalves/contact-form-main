@@ -52,7 +52,9 @@ h1 {
 
 h1,
 label,
-p {
+p,
+legend {
+	-webkit-user-select: none;
 	user-select: none;
 }
 
@@ -67,7 +69,7 @@ input,
 }
 
 input[type="text"],
-.message {
+.message, legend, .container-radio {
 	width: 100%;
 }
 
@@ -87,6 +89,10 @@ input:focus {
 	display: flex;
 	flex-direction: column;
 	margin-top: 1rem;
+}
+
+fieldset {
+	border: none;
 }
 
 .container-radio {
@@ -123,6 +129,7 @@ input:focus {
 .container-checkbox {
 	display: flex;
 	flex-direction: row;
+	align-items: center;
 	gap: 1rem;
 
 	border-radius: 0.3rem;
@@ -142,12 +149,6 @@ input:focus {
 
 .container-checkbox input:checked {
 	content: url("../../assets/images/icon-checkbox-check.svg");
-}
-
-.container-checkbox label {
-	display: flex;
-	justify-content: center;
-	align-items: center;
 }
 
 .button:focus {
@@ -171,9 +172,8 @@ input:focus {
 
 /* Validation */
 
-.asterisk::after {
+.mandatory {
 	color: var(--green-medium);
-	content: " *";
 }
 
 .selected {
@@ -211,8 +211,7 @@ input:focus {
 
 .success-title::before {
 	content: "";
-	background: url("../../assets/images/icon-success-check.svg") left / contain
-		no-repeat;
+	background: url("../../assets/images/icon-success-check.svg") left / contain no-repeat;
 
 	position: absolute;
 	left: 0;
@@ -241,22 +240,17 @@ footer p {
 }
 
 footer a {
-	color: var(--green-medium);
+	color: var(--green-darker);
 	font-weight: 600;
 	text-underline-offset: 0.2rem;
 }
 
-footer a:hover {
-	color: var(--green-darker);
-	text-decoration: underline;
-}
-
-footer a:visited {
-	color: var(--green-darker);
+footer a:hover, footer a:visited {
+	color: var(--grey-darker);
 }
 
 footer a:focus {
 	border-radius: 0.1rem;
-	outline: 2px solid var(--green-darker);
+	outline: 2px solid var(--grey-darker);
 	outline-offset: 1px;
 }
