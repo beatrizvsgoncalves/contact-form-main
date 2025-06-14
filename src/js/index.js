@@ -5,5 +5,3 @@ import { validateForm } from "./form.js";
 keyboardNavigation();
 validateForm();
 handleRadio();
-
-// todo -- implementar atributos aria para acessibilidade
