@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="./src/styles/index.css" />
 		<link rel="stylesheet" href="./src/styles/media-queries.css">
 
-		<script type="module" src="./src/js/index.js"></script>
+		<script type="module" src="./src/js/main.js"></script>
 
 		<title>Frontend Mentor | Contact form</title>
 	</head>
@@ -37,7 +37,6 @@
 								aria-invalid="true"
 								tabindex="0"
 							/>
-							<span id="firstName-error" class="error-message" role="alert"></span>
 						</fieldset>
 						<fieldset class="container-inputs">
 							<label for="lastName">Last Name <span class="mandatory">*</span></label>
@@ -51,7 +50,6 @@
 								aria-describedby="lastName-error"
 								aria-invalid="true"
 							/>
-							<span id="lastName-error" class="error-message" role="alert"></span>
 						</fieldset>
 					</fieldset>
 					<fieldset class="container-inputs">
@@ -66,41 +64,37 @@
 							aria-describedby="email-error"
 							aria-invalid="true"
 						/>
-						<span id="email-error" class="error-message" role="alert"></span>
 					</fieldset>
 					<fieldset class="container-inputs">
-						<fieldset>
-							<legend>Query type <span class="mandatory">*</span></legend>
-							<fieldset class="container-radio">
-								<fieldset class="input-radio">
-									<input
-									type="radio"
-									name="queryType"
-									id="type-general"
-									class="keyboard-navigation"
-									value="General Enquiry"
-									aria-required="true"
-									aria-describedby="email-error"
-									aria-invalid="true"
-									/>
-									<label for="type-general">General Enquiry</label>
-								</fieldset>
-								<fieldset class="input-radio">
-									<input
-									type="radio"
-									name="queryType"
-									id="type-support"
-									class="keyboard-navigation"
-									value="Support Request"
-									aria-required="true"
-									aria-describedby="email-error"
-									aria-invalid="true"
-									/>
-									<label for="type-support">Support Request</label>
-								</fieldset>
+						<legend>Query type <span class="mandatory">*</span></legend>
+						<fieldset class="container-radio">
+							<fieldset class="input-radio">
+								<input
+								type="radio"
+								name="queryType"
+								id="type-general"
+								class="keyboard-navigation"
+								value="General Enquiry"
+								aria-required="true"
+								aria-describedby="email-error"
+								aria-invalid="true"
+								/>
+								<label for="type-general">General Enquiry</label>
+							</fieldset>
+							<fieldset class="input-radio">
+								<input
+								type="radio"
+								name="queryType"
+								id="type-support"
+								class="keyboard-navigation"
+								value="Support Request"
+								aria-required="true"
+								aria-describedby="email-error"
+								aria-invalid="true"
+								/>
+								<label for="type-support">Support Request</label>
 							</fieldset>
 						</fieldset>
-						<span id="queryType-error" class="error-message" role="alert"></span>
 					</fieldset>
 					<fieldset class="container-inputs">
 						<label for="message">Message <span class="mandatory">*</span></label>
@@ -113,7 +107,6 @@
 							aria-invalid="true"
 						/>
 						</textarea>
-						<span id="message-error" class="error-message" role="alert"></span>
 					</fieldset>
 					<fieldset class="container-inputs">
 						<fieldset class="container-checkbox">
@@ -130,7 +123,6 @@
 							<label for="consent">I consent to being contacted by the team <span class="mandatory">*</span></label
 							>
 						</fieldset>
-						<span id="consent-error" class="error-message" role="alert"></span>
 					</fieldset>
 					<fieldset>
 						<button type="submit" class="keyboard-navigation button"  aria-label="Submit the form">Submit</button>

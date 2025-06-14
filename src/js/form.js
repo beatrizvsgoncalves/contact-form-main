@@ -1,28 +1,31 @@
-import { resetRadioStyles } from "./handle-radio.js";
-import successMessage from "./success.js";
-export let valid = [];
+import successMessage from './utils/success-message.js';
+import {
+	removeError,
+	resetFormInputs,
+	showError,
+	userInputs,
+} from './utils/dom.js';
+import {
+	hasMinimunSize,
+	hasNumber,
+	isChecked,
+	isEmail,
+	isEmpty,
+} from './utils/validation.js';
 
-const userInputs = {
-	firstName: document.querySelector("#firstName"),
-	lastName: document.querySelector("#lastName"),
-	email: document.querySelector("#email"),
-	queryType: document.querySelectorAll("input[type='radio']"),
-	message: document.querySelector("#message"),
-	consent: document.querySelector("input[type='checkbox']"),
-};
+export let hasError = false;
 
 export function validateForm() {
-	const form = document.querySelector("form");
-	
-	form.addEventListener("submit", (ev) => {
+	const form = document.querySelector('form');
+
+	form.addEventListener('submit', (ev) => {
 		ev.preventDefault();
-		validateInputs();
-		resetFormStyles();
+		hasError = false
+		validateInputs() 
 		
-		if (validateInputs()) {
+		if (!hasError) {
 			successMessage();
-			resetFormInputs();
-			resetFormStyles();
+			resetFormInputs(form);
 		}
 	});
 }
@@ -33,111 +36,70 @@ function validateInputs() {
 	validateEmail(userInputs.email);
 	validateQueryType(userInputs.queryType);
 	validateMessage(userInputs.message);
-	validateConsent(userInputs.consent);
-
-	if (valid.every((input) => input === true)) {
-		return true;
-	} else {
-		return false;
-	}
+	validateConsent(userInputs.consent)
 }
 
 function validateFirstName(firstName) {
-	if (firstName.value === "" || firstName.value.length < 2 || firstName.value.match(/\d/)) {
-		const err = new Error("This field is required");
-		err.input = "firstName";
-		displayError(err.message, err.input);
-		valid[0] = false;
+	if (
+		isEmpty(firstName.value) ||
+		hasMinimunSize(firstName.value) ||
+		hasNumber(firstName.value)
+	) {
+		showError(firstName, 'This field is required');
+		hasError = true
 	} else {
-		valid[0] = true;
+		removeError(firstName);
 	}
 }
 
 function validateLastName(lastName) {
-	if (lastName.value === "" || lastName.value.length < 2 || lastName.value.match(/\d/)) {
-		const err = new Error("This field is required");
-		err.input = "lastName";
-		displayError(err.message, err.input);
-		valid[1] = false;
+	if (
+		isEmpty(lastName.value) ||
+		hasMinimunSize(lastName.value) ||
+		hasNumber(lastName.value)
+	) {
+		showError(lastName, 'This field is required');
+		hasError = true
 	} else {
-		valid[1] = true;
+		removeError(lastName);
 	}
 }
 
 function validateEmail(email) {
-	if (
-		email.value === "" ||
-		!email.value.match(/\w{2,}@[a-zA-Z]{2,}\.[a-zA-Z]{2,}/)
-	) {
-		const err = new Error("Please enter a valid email address");
-		err.input = "email";
-		displayError(err.message, err.input);
-		valid[2] = false;
+	if (isEmpty(email.value) || isEmail(email.value)) {
+		showError(email, 'Please enter a valid email address');
+		hasError = true
 	} else {
-		valid[2] = true;
+		removeError(email);
 	}
 }
 
 function validateQueryType(queryType) {
-	if (queryType[0].checked === false && queryType[1].checked === false) {
-		const err = new Error("Please select a query type");
-		err.input = "queryType";
-		displayError(err.message, err.input);
-		valid[3] = false;
+	if (isChecked(queryType[0]) && isChecked(queryType[1])) {
+		showError(queryType[0], 'Please select a query type');
+		hasError = true
 	} else {
-		valid[3] = true;
+		removeError(queryType[0]);
 	}
 }
 
 function validateMessage(message) {
-	if (message.value === "" || message.value.length < 10) {
-		const err = new Error("This field is required");
-		err.input = "message";
-		displayError(err.message, err.input);
-		valid[4] = false;
+	if (isEmpty(message.value) || hasMinimunSize(message.value)) {
+		showError(message, 'This field is required');
+		hasError = true
 	} else {
-		valid[4] = true;
+		removeError(message);
 	}
 }
 
 function validateConsent(consent) {
-	if (!consent.checked) {
-		const err = new Error(
-			"To submit this form, please consent to being contacted"
+	if (isChecked(consent)) {
+		showError(
+			consent,
+			'To submit this form, please consent to being contacted'
 		);
-		err.input = "consent";
-		displayError(err.message, err.input);
-		valid[5] = false;
+		hasError = true
 	} else {
-		valid[5] = true;
-	}
-}
-
-function displayError(message, key) {
-	const errorElement = document.querySelector(`#${key}-error`);
-	errorElement.textContent = message;
-	if (key !== "queryType" || key !== "consent") {
-		userInputs[key]?.classList?.add("error");
-	}
-}
-
-function resetFormStyles() {
-	Object.entries(userInputs).forEach(([key, value]) => {
-		value?.classList?.remove("error");
-		document.querySelector(`#${key}-error`).textContent = "";
-	});
-}
-
-function resetFormInputs() {
-	if (document.querySelector(".success-message")) {
-		userInputs.firstName.value = "";
-		userInputs.lastName.value = "";
-		userInputs.email.value = "";
-		userInputs.queryType[0].checked = false;
-		userInputs.queryType[1].checked = false;
-		resetRadioStyles()
-		userInputs.message.value = "";
-		userInputs.consent.checked = false;
-		document.activeElement.blur();
+		removeError(consent);
 	}
 }

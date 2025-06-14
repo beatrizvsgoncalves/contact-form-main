@@ -129,13 +129,13 @@ fieldset {
 
 	border-radius: 0.3rem;
 	line-height: 1.5rem;
-	margin: 1rem auto 1rem 0;
+	margin: 1rem auto 2rem 0;
 	text-underline-offset: 0.2vh;
 }
 
 .container-checkbox + span {
 	margin-bottom: 2rem;
-	margin-top: -0.6rem;
+	margin-top: -1.6rem;
 }
 
 .container-checkbox input {
