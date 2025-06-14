@@ -43,7 +43,7 @@ function validateInputs() {
 }
 
 function validateFirstName(firstName) {
-	if (firstName.value === "" || firstName.value.length < 2) {
+	if (firstName.value === "" || firstName.value.length < 2 || firstName.value.match(/\d/)) {
 		const err = new Error("This field is required");
 		err.input = "firstName";
 		displayError(err.message, err.input);
@@ -54,7 +54,7 @@ function validateFirstName(firstName) {
 }
 
 function validateLastName(lastName) {
-	if (lastName.value === "" || lastName.value.length < 2) {
+	if (lastName.value === "" || lastName.value.length < 2 || lastName.value.match(/\d/)) {
 		const err = new Error("This field is required");
 		err.input = "lastName";
 		displayError(err.message, err.input);

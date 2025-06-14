@@ -23,7 +23,7 @@ body {
 	background-color: var(--green-lighter);
 	color: var(--grey-darker);
 	font-family: "Karla", serif;
-	font-size: 16px;
+	font-size: min(16px);
 	padding-top: 2rem;
 
 	height: 100vh;
@@ -33,17 +33,12 @@ body {
 /* Main */
 
 main {
-	margin: auto;
-	height: auto;
-	width: 100%;
-}
-
-#container {
 	background-color: var(--white);
 	border-radius: 0.7rem;
 	height: fit-content;
 	margin: auto;
 	padding: 1.5rem;
+	width: 50%;
 }
 
 h1 {
@@ -97,7 +92,8 @@ fieldset {
 .container-radio {
 	display: flex;
 	flex-direction: column;
-	margin: 0.5rem 0 0 0;
+	margin: 0;
+	margin-top: 0.5rem;
 }
 
 .container-radio label {
@@ -117,7 +113,7 @@ fieldset {
 }
 
 .input-radio input:checked {
-	content: url("../../assets/images/icon-radio-selected.svg");
+	accent-color: var(--green-medium);
 }
 
 .message {
@@ -195,10 +191,13 @@ fieldset {
 	border-radius: 0.5rem;
 	color: var(--white);
 	font-size: 0.9em;
-	margin: auto;
 	max-height: fit-content;
 	max-width: fit-content;
 	padding: 1rem;
+
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
 }
 
 .success-title {

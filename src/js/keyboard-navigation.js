@@ -1,62 +1,74 @@
-import { handleRadio } from "./handle-radio.js";
 let currentIndex = -1;
 
 export default function keyboardNavigation() {
-	const elements = document.querySelectorAll(".keyboard-navigation");
-	
-	document.addEventListener("keydown", (event) => {
-		if (event.key === "Tab") {
-			event.preventDefault();
+	const elements = document.querySelectorAll('.keyboard-navigation');
 
-			if (event.shiftKey) {
-				currentIndex = (currentIndex - 1 + elements.length) % elements.length;
-			} else {
-				currentIndex = (currentIndex + 1) % elements.length;
-			}
-			
-			elements[currentIndex].focus();
-			resetStyles();
-			focusRadioAndCheckbox(elements[currentIndex]);
-		} else if (event.key === "Enter") {
+	document.addEventListener('keydown', (event) => {
+		if (
+			event.key === 'Tab' ||
+			event.key === 'ArrowDown' ||
+			event.key === 'ArrowRight'
+		) {
 			event.preventDefault();
-			
-			handleRadio();
-			handleCheckboxEnter();
-			focusInNextElement();
+			focusOn('Next', elements);
+		} else if (
+			(event.key === 'Tab' && event.shiftKey) ||
+			event.key === 'ArrowUp' ||
+			event.key === 'ArrowLeft'
+		) {
+			event.preventDefault();
+			focusOn('Prev', elements);
+		} else if (event.key === 'Enter') {
+			event.preventDefault();
+			focusInNextElement(elements);
 		}
 	});
 }
 
-function focusInNextElement() {
-	const elements = document.querySelectorAll(".keyboard-navigation");
-	const elementOnFocus = elements[document.activeElement.tabIndex];
-	const nextElement =
-	elements[elementOnFocus.tabIndex + 1] === undefined
-	? undefined
-	: elements[elementOnFocus.tabIndex + 1];
-	
-	if (elementOnFocus.type !== "submit" && elementOnFocus.value !== "" && nextElement !== undefined) {
-		currentIndex = nextElement.tabIndex % elements.length;
-		nextElement.focus();
-		focusRadioAndCheckbox(nextElement);
-	} else if (elementOnFocus.type === "submit") {
+function focusOn(direction, array) {
+	if (direction === 'Next') {
+		currentIndex = (currentIndex + 1) % array.length;
+	} else {
+		currentIndex = (currentIndex - 1 + array.length) % array.length;
+	}
+
+	array[currentIndex].focus();
+	resetStyles();
+	focusRadioAndCheckbox(array[currentIndex]);
+}
+
+function focusInNextElement(elements) {
+	const elementOnFocus = document.activeElement;
+
+	if (
+		elementOnFocus.type !== 'submit' 	&&
+		elementOnFocus.value !== ''
+	) {
+		focusOn('Next', elements);
+	} else if (elementOnFocus.type === 'submit') {
 		handleSubmitEnter();
-		resetStyles();
+	}
+
+	if (elementOnFocus.type === 'checkbox') {
+		handleCheckboxEnter(elementOnFocus);
+	}
+
+	if (elementOnFocus.id === 'type-general') {
+		focusOn('Next', elements);
 	}
 }
 
 function focusRadioAndCheckbox(input) {
-	if (input.type === "radio") {
-		input.parentElement.style.border = "1px solid var(--green-medium)";
-	} else if (input.type === "checkbox") {
-		input.parentElement.style.textDecoration = "underline";
+	if (input.type === 'radio') {
+		input.parentElement.style.border = '1px solid var(--green-medium)';
+	} else if (input.type === 'checkbox') {
+		input.parentElement.style.textDecoration = 'underline';
 	}
 }
 
-function handleCheckboxEnter() {
-	const checkbox = document.querySelector('input[type="checkbox"]');
-	checkbox.parentElement.style.textDecoration = "none";
-	
+function handleCheckboxEnter(checkbox) {
+	checkbox.parentElement.style.textDecoration = 'none';
+
 	if (checkbox.checked === false) {
 		checkbox.click();
 	} else {
@@ -67,15 +79,15 @@ function handleCheckboxEnter() {
 function handleSubmitEnter() {
 	const submitButton = document.querySelector('[type="submit"]');
 	submitButton.click();
+	resetStyles();
 }
 
 function resetStyles() {
 	const inputs = document.querySelectorAll('input[type="radio"]');
 	inputs.forEach((input) => {
-		input.parentElement.style.border = "1px solid var(--grey-medium)";
+		input.parentElement.style.border = '1px solid var(--grey-medium)';
 	});
-	const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-	checkboxes.forEach((checkbox) => {
-		checkbox.parentElement.style.textDecoration = "none";
-	});
+
+	const checkbox = document.querySelector('input[type="checkbox"]');
+	checkbox.parentElement.style.textDecoration = 'none';
 }

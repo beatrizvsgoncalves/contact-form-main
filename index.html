@@ -20,12 +20,11 @@
 	</head>
 	<body>
 		<main>
-			<div id="container">
 				<h1>Contact Us</h1>
 				
 				<form action="#" method="post">
-					<div class="div-fullname">
-						<div class="container-inputs">
+					<fieldset class="container-fullname">
+						<fieldset class="container-inputs">
 							<label for="firstName">First Name <span class="mandatory">*</span></label>
 							<input
 								type="text"
@@ -39,8 +38,8 @@
 								tabindex="0"
 							/>
 							<span id="firstName-error" class="error-message" role="alert"></span>
-						</div>
-						<div class="container-inputs">
+						</fieldset>
+						<fieldset class="container-inputs">
 							<label for="lastName">Last Name <span class="mandatory">*</span></label>
 							<input
 								type="text"
@@ -53,9 +52,9 @@
 								aria-invalid="true"
 							/>
 							<span id="lastName-error" class="error-message" role="alert"></span>
-						</div>
-					</div>
-					<div class="container-inputs">
+						</fieldset>
+					</fieldset>
+					<fieldset class="container-inputs">
 						<label for="email">Email Address <span class="mandatory">*</span></label>
 						<input
 							type="text"
@@ -68,12 +67,12 @@
 							aria-invalid="true"
 						/>
 						<span id="email-error" class="error-message" role="alert"></span>
-					</div>
-					<div class="container-inputs">
+					</fieldset>
+					<fieldset class="container-inputs">
 						<fieldset>
 							<legend>Query type <span class="mandatory">*</span></legend>
-							<div class="container-radio">
-								<div class="input-radio">
+							<fieldset class="container-radio">
+								<fieldset class="input-radio">
 									<input
 									type="radio"
 									name="queryType"
@@ -85,8 +84,8 @@
 									aria-invalid="true"
 									/>
 									<label for="type-general">General Enquiry</label>
-								</div>
-								<div class="input-radio">
+								</fieldset>
+								<fieldset class="input-radio">
 									<input
 									type="radio"
 									name="queryType"
@@ -98,12 +97,12 @@
 									aria-invalid="true"
 									/>
 									<label for="type-support">Support Request</label>
-								</div>
-							</div>
+								</fieldset>
+							</fieldset>
 						</fieldset>
 						<span id="queryType-error" class="error-message" role="alert"></span>
-					</div>
-					<div class="container-inputs">
+					</fieldset>
+					<fieldset class="container-inputs">
 						<label for="message">Message <span class="mandatory">*</span></label>
 						<textarea
 							name="message"
@@ -115,9 +114,9 @@
 						/>
 						</textarea>
 						<span id="message-error" class="error-message" role="alert"></span>
-					</div>
-					<div class="container-inputs">
-						<div class="container-checkbox">
+					</fieldset>
+					<fieldset class="container-inputs">
+						<fieldset class="container-checkbox">
 							<input
 								type="checkbox"
 								name="consent"
@@ -130,27 +129,24 @@
 							/>
 							<label for="consent">I consent to being contacted by the team <span class="mandatory">*</span></label
 							>
-						</div>
+						</fieldset>
 						<span id="consent-error" class="error-message" role="alert"></span>
-					</div>
-					<div>
+					</fieldset>
+					<fieldset>
 						<button type="submit" class="keyboard-navigation button"  aria-label="Submit the form">Submit</button>
-					</div>
+					</fieldset>
 				</form>
 			</main>
 			<footer>
-				<div>
-					<p>
-						Challenge by
-						<a href="https://www.frontendmentor.io?ref=challenge" target="_blank" class="keyboard-navigation" aria-label="Challenge reference">Frontend Mentor</a
-						>.
-					</p>
-					<p>
-						Coded by
-						<a href="https://github.com/beatrizvsgoncalves" target="_blank" class="keyboard-navigation" aria-label="Author's social network">Beatriz Gonçalves</a>.
-					</p>
-				</div>
-		</div>
+				<p>
+					Challenge by
+					<a href="https://www.frontendmentor.io?ref=challenge" target="_blank" class="keyboard-navigation" aria-label="Challenge reference">Frontend Mentor</a
+					>.
+				</p>
+				<p>
+					Coded by
+					<a href="https://github.com/beatrizvsgoncalves" target="_blank" class="keyboard-navigation" aria-label="Author's social network">Beatriz Gonçalves</a>.
+				</p>
 		</footer>
 	</body>
 </html>

@@ -1,7 +1,7 @@
 /* max */
 
 @media (max-width: 30rem) {
-	#container,
+	main,
 	.success-message {
 		width: 85%;
 	}
@@ -29,7 +29,7 @@
 }
 
 @media (max-width: 15.6rem) {
-	#container,
+	main,
 	.success-message {
 		padding: 1rem;
 	}
@@ -59,20 +59,20 @@
 /* min */
 
 @media (min-width: 30.1rem) {
-	#container,
+	main,
 	.success-message {
 		width: 70%;
 	}
 }
 
 @media (min-width: 48.1rem) {
-	#container {
+	main {
 		padding: 2rem;
 		max-width: 45rem;
 		min-width: 42rem;
 	}
 
-	.div-fullname,
+	.container-fullname,
 	.container-radio {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
@@ -94,7 +94,7 @@
 		margin-bottom: 2vh;
 	}
 
-	#container {
+	main {
 		max-width: 50vw;
 		min-width: 50vw;
 		padding: 2vw;
@@ -130,7 +130,7 @@
 		padding: 0.8vw;
 	}
 
-	#container,
+	main,
 	input,
 	.message,
 	.input-radio,
@@ -139,8 +139,8 @@
 		border-radius: 0.5rem;
 	}
 
-	input[type="checkbox"],
-	input[type="radio"] {
+	input[type='checkbox'],
+	input[type='radio'] {
 		height: 1.7vh;
 		width: 1.7vw;
 	}
@@ -151,7 +151,10 @@
 }
 
 @media (min-width: 250rem) {
-	#container,
+	main {
+		border-radius: 2rem;
+	}
+
 	input,
 	.message,
 	.input-radio,

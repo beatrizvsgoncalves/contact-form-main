@@ -1,33 +1,29 @@
-const inputs = document.querySelectorAll('input[type="radio"]')
+const inputs = document.querySelectorAll('input[type="radio"]');
 
 export function handleRadio() {
-	inputs.forEach(input => {
-		input.parentElement.addEventListener("click", () => {
-			resetRadioStyles();
-			input.parentElement.classList.add("selected");
-			input.checked = true;
-		})
-
-		input.addEventListener("keydown", (ev) => {
-			if (ev.key === "Enter") {
-				resetRadioStyles();
-				input.checked = true;
-				input.parentElement.classList.add("selected");
-
-				if (input.tabIndex === 3) {
-					const nextElement = document.querySelector(`[tabindex='4']`);
-					nextElement.focus();
-				}
-			} else if (ev.key === "ArrowDown" || ev.key === "ArrowUp") {
-				ev.preventDefault();
+	inputs.forEach((input) => {
+		input.parentElement.addEventListener('click', () => {
+			addRadioStyles(input)
+		});
+		
+		input.addEventListener('keydown', (ev) => {
+			if (ev.key === 'Enter') {
+				ev.preventDefault()
+				addRadioStyles(input)
 			}
 		});
-	})
+	});
+}
+
+function addRadioStyles(input) {
+	resetRadioStyles();
+	input.parentElement.classList.add('selected');
+	input.checked = true;
 }
 
 export function resetRadioStyles() {
 	inputs.forEach((input) => {
-		input.parentElement.classList.remove("selected");
-		input.parentElement.style.border = "1px solid var(--grey-medium)";
+		input.parentElement.classList.remove('selected');
+		input.parentElement.style.border = '1px solid var(--grey-medium)';
 	});
 }

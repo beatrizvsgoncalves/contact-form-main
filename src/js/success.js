@@ -17,10 +17,12 @@ export default function successMessage() {
 
 		successMsg.append(successTitle, successText);
 
-		const main = document.querySelector("main")
-		main.insertAdjacentElement("afterbegin", successMsg);
-
+		document.body.appendChild(successMsg)
 		document.body.scrollTop = 0;
 		document.documentElement.scrollTop = 0;
+
+		setTimeout(() => {
+			successMsg.remove();
+		}, 1000 * 5);
 	}
 }
