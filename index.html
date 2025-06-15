@@ -24,7 +24,7 @@
 				
 				<form action="#" method="post">
 					<fieldset class="container-fullname">
-						<fieldset class="container-inputs">
+						<div class="container-inputs">
 							<label for="firstName">First Name <span class="mandatory">*</span></label>
 							<input
 								type="text"
@@ -37,8 +37,8 @@
 								aria-invalid="true"
 								tabindex="0"
 							/>
-						</fieldset>
-						<fieldset class="container-inputs">
+						</div>
+						<div class="container-inputs">
 							<label for="lastName">Last Name <span class="mandatory">*</span></label>
 							<input
 								type="text"
@@ -50,9 +50,9 @@
 								aria-describedby="lastName-error"
 								aria-invalid="true"
 							/>
-						</fieldset>
+						</div>
 					</fieldset>
-					<fieldset class="container-inputs">
+					<div class="container-inputs">
 						<label for="email">Email Address <span class="mandatory">*</span></label>
 						<input
 							type="text"
@@ -64,11 +64,11 @@
 							aria-describedby="email-error"
 							aria-invalid="true"
 						/>
-					</fieldset>
+					</div>
 					<fieldset class="container-inputs">
 						<legend>Query type <span class="mandatory">*</span></legend>
-						<fieldset class="container-radio">
-							<fieldset class="input-radio">
+						<div class="container-radio">
+							<div class="input-radio">
 								<input
 								type="radio"
 								name="queryType"
@@ -80,8 +80,8 @@
 								aria-invalid="true"
 								/>
 								<label for="type-general">General Enquiry</label>
-							</fieldset>
-							<fieldset class="input-radio">
+							</div>
+							<div class="input-radio">
 								<input
 								type="radio"
 								name="queryType"
@@ -93,10 +93,10 @@
 								aria-invalid="true"
 								/>
 								<label for="type-support">Support Request</label>
-							</fieldset>
-						</fieldset>
+							</div>
+						</div>
 					</fieldset>
-					<fieldset class="container-inputs">
+					<div class="container-inputs">
 						<label for="message">Message <span class="mandatory">*</span></label>
 						<textarea
 							name="message"
@@ -107,9 +107,9 @@
 							aria-invalid="true"
 						/>
 						</textarea>
-					</fieldset>
-					<fieldset class="container-inputs">
-						<fieldset class="container-checkbox">
+					</div>
+					<div class="container-inputs">
+						<div class="container-checkbox">
 							<input
 								type="checkbox"
 								name="consent"
@@ -122,11 +122,11 @@
 							/>
 							<label for="consent">I consent to being contacted by the team <span class="mandatory">*</span></label
 							>
-						</fieldset>
-					</fieldset>
-					<fieldset>
+						</div>
+					</div>
+					<div>
 						<button type="submit" class="keyboard-navigation button"  aria-label="Submit the form">Submit</button>
-					</fieldset>
+					</div>
 				</form>
 			</main>
 			<footer>
